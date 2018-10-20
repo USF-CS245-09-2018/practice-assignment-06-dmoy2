@@ -5,9 +5,10 @@ public class ArrayStack implements Stack {
     private int length;
 
     public ArrayStack() {
+        this.arr = new Object[10];
+
         this.length = 10;
         this.top = 0;
-        this.arr = new Object[length];
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ArrayStack implements Stack {
 
     @Override
     public Object pop() {
-        if(top > 0){
+        if(top>0){
             return arr[--top];
         }
         return null;
@@ -30,12 +31,7 @@ public class ArrayStack implements Stack {
 
     @Override
     public Object peek() {
-        if(!empty()){
-            return arr[top];
-        }
-        else{
-            return null;
-        }
+        return arr[top];
     }
 
     @Override
@@ -48,8 +44,7 @@ public class ArrayStack implements Stack {
         for(int i =0; i < length; i++){
             newArr[i] =  arr[i];
         }
-        top = 0;
-        length = length *2;
         arr = newArr;
+        length = length *2;
     }
 }
